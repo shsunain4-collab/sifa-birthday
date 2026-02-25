@@ -18,7 +18,7 @@ overflow:hidden;
 }
 .card{
 background:white;
-padding:30px;
+padding:35px;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
 max-width:90%;
@@ -35,8 +35,9 @@ margin-top:20px;
 .emoji{
 position:fixed;
 top:-50px;
-font-size:24px;
+font-size:22px;
 animation:fall linear infinite;
+opacity:.7;
 }
 @keyframes fall{
 to{transform:translateY(110vh);}
@@ -52,12 +53,12 @@ to{transform:translateY(110vh);}
 let step=0;
 
 function rain(symbol){
-for(let i=0;i<40;i++){
+for(let i=0;i<18;i++){   // emoji reduced 😄
 let e=document.createElement("div");
 e.className="emoji";
 e.innerText=symbol;
 e.style.left=Math.random()*100+"%";
-e.style.animationDuration=(3+Math.random()*4)+"s";
+e.style.animationDuration=(4+Math.random()*4)+"s";
 document.body.appendChild(e);
 }
 }
@@ -71,39 +72,44 @@ function loadPage(){
 let c=document.getElementById("content");
 
 if(step==0){
-rain("😬");
-c.innerHTML=`<h1>😬 Oops Sifa...</h1>
-<p>Sunain tumhara birthday bhool gaya 😭</p>
-<button onclick="next()">Aage kya hua?</button>`;
+rain("💖");
+c.innerHTML=`<h1>Hey Sifa ❤️</h1>
+<p>Mujhse ek bohot badi galti ho gayi... 😔<br>
+Main tumhara birthday bhool gaya.</p>
+<button onclick="next()">Sach bataun?</button>`;
 }
 
 else if(step==1){
-rain("😂");
-c.innerHTML=`<h1>🤦 Sach bataun?</h1>
-<p>Main duniya ka sabse bhulakkad husband hoon 😭</p>
-<button onclick="next()">Kitna bhulakkad?</button>`;
+rain("🥺");
+c.innerHTML=`<h1>Sach ye hai...</h1>
+<p>Main duniya ka sabse bhulakkad husband hoon 😭<br>
+Par tum meri duniya ho ❤️</p>
+<button onclick="next()">Aur suno...</button>`;
 }
 
 else if(step==2){
-rain("💀");
-c.innerHTML=`<h1>🎂 Confession Time</h1>
-<p>Main apni sabse special queen Sifa ka birthday bhool gaya 💀</p>
-<button onclick="next()">Ab punishment?</button>`;
+rain("💌");
+c.innerHTML=`<h1>Tum special ho</h1>
+<p>Tum meri life ki best notification ho 📱💖<br>
+Tum bina life silent mode jaisi lagti hai.</p>
+<button onclick="next()">Last baat...</button>`;
 }
 
 else if(step==3){
-rain("🥺");
-c.innerHTML=`<h1>🥺 Final Sorry</h1>
-<p>I am REALLY REALLY SORRY ❤️<br>Tum meri life ki best notification ho 📱</p>
-<button onclick="next()">Final message ❤️</button>`;
+rain("❤️");
+c.innerHTML=`<h1>I am really sorry</h1>
+<p>Late wish kar raha hoon…<br>
+Par mera pyar kabhi late nahi hota ❤️</p>
+<button onclick="next()">Open surprise 🎉</button>`;
 }
 
 else if(step==4){
 rain("🎉");
 rain("❤️");
-rain("🥰");
 c.innerHTML=`<h1>🎉 HAPPY BIRTHDAY SIFA 🎉</h1>
-<p>Late sahi… par pyar full time hai ❤️<br>Love you forever 😘</p>`;
+<p>Late sahi… par pyar lifetime warranty ke sath hai 😌❤️<br>
+Love you forever 😘<br><br>
+— Tumhara Sunain 💖</p>`;
 }
 }
 
