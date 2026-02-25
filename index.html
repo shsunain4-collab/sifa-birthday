@@ -46,16 +46,12 @@ to{transform:translateY(110vh);}
 
 <body>
 
-<div id="content" class="card">
-<h1>😬 Oops Sifa...</h1>
-<p>Sunain tumhara birthday bhool gaya 😭</p>
-<button onclick="next()">Aage kya hua?</button>
-</div>
+<div id="content" class="card"></div>
 
 <script>
 let step=0;
 
-function emojiRain(symbol){
+function rain(symbol){
 for(let i=0;i<40;i++){
 let e=document.createElement("div");
 e.className="emoji";
@@ -68,17 +64,50 @@ document.body.appendChild(e);
 
 function next(){
 step++;
-if(step==1){
-emojiRain("😂");
-document.getElementById("content").innerHTML=
-"<h1>🤦 Sach bataun?</h1><p>Main duniya ka sabse bhulakkad husband hoon 😭</p><button onclick='next()'>Ab kya?</button>";
+loadPage();
 }
+
+function loadPage(){
+let c=document.getElementById("content");
+
+if(step==0){
+rain("😬");
+c.innerHTML=`<h1>😬 Oops Sifa...</h1>
+<p>Sunain tumhara birthday bhool gaya 😭</p>
+<button onclick="next()">Aage kya hua?</button>`;
+}
+
+else if(step==1){
+rain("😂");
+c.innerHTML=`<h1>🤦 Sach bataun?</h1>
+<p>Main duniya ka sabse bhulakkad husband hoon 😭</p>
+<button onclick="next()">Kitna bhulakkad?</button>`;
+}
+
 else if(step==2){
-emojiRain("🎉");
-document.getElementById("content").innerHTML=
-"<h1>🎉 HAPPY BIRTHDAY SIFA 🎉</h1><p>Late sahi… par pyar full time hai ❤️<br>Love you forever 😘</p>";
+rain("💀");
+c.innerHTML=`<h1>🎂 Confession Time</h1>
+<p>Main apni sabse special queen Sifa ka birthday bhool gaya 💀</p>
+<button onclick="next()">Ab punishment?</button>`;
+}
+
+else if(step==3){
+rain("🥺");
+c.innerHTML=`<h1>🥺 Final Sorry</h1>
+<p>I am REALLY REALLY SORRY ❤️<br>Tum meri life ki best notification ho 📱</p>
+<button onclick="next()">Final message ❤️</button>`;
+}
+
+else if(step==4){
+rain("🎉");
+rain("❤️");
+rain("🥰");
+c.innerHTML=`<h1>🎉 HAPPY BIRTHDAY SIFA 🎉</h1>
+<p>Late sahi… par pyar full time hai ❤️<br>Love you forever 😘</p>`;
 }
 }
+
+loadPage();
 </script>
 
 </body>
