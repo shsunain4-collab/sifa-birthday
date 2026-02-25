@@ -3,46 +3,81 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sorry Sifa ❤️</title>
+
 <style>
 body{
+margin:0;
 font-family:sans-serif;
-text-align:center;
-background:#ffc0cb;
+background:linear-gradient(135deg,#ffc0cb,#ff9eb5);
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-margin:0;
+text-align:center;
+overflow:hidden;
+}
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+max-width:90%;
 }
 button{
 padding:15px 25px;
 font-size:18px;
 border:none;
-border-radius:10px;
+border-radius:12px;
 background:#ff4d6d;
 color:white;
+margin-top:20px;
+}
+.emoji{
+position:fixed;
+top:-50px;
+font-size:24px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{transform:translateY(110vh);}
 }
 </style>
 </head>
+
 <body>
 
-<div id="p1">
+<div id="content" class="card">
 <h1>😬 Oops Sifa...</h1>
 <p>Sunain tumhara birthday bhool gaya 😭</p>
-<button onclick="p2()">Aage kya hua?</button>
+<button onclick="next()">Aage kya hua?</button>
 </div>
 
 <script>
-function p2(){
-document.body.innerHTML=`
-<h1>🤦 Sach bataun?</h1>
-<p>Main duniya ka sabse bhulakkad husband hoon 😭</p>
-<button onclick="p3()">Ab kya?</button>`
+let step=0;
+
+function emojiRain(symbol){
+for(let i=0;i<40;i++){
+let e=document.createElement("div");
+e.className="emoji";
+e.innerText=symbol;
+e.style.left=Math.random()*100+"%";
+e.style.animationDuration=(3+Math.random()*4)+"s";
+document.body.appendChild(e);
 }
-function p3(){
-document.body.innerHTML=`
-<h1>🎉 HAPPY BIRTHDAY SIFA 🎉</h1>
-<p>Late sahi… par pyar full time hai ❤️<br>Love you forever 😘</p>`
+}
+
+function next(){
+step++;
+if(step==1){
+emojiRain("😂");
+document.getElementById("content").innerHTML=
+"<h1>🤦 Sach bataun?</h1><p>Main duniya ka sabse bhulakkad husband hoon 😭</p><button onclick='next()'>Ab kya?</button>";
+}
+else if(step==2){
+emojiRain("🎉");
+document.getElementById("content").innerHTML=
+"<h1>🎉 HAPPY BIRTHDAY SIFA 🎉</h1><p>Late sahi… par pyar full time hai ❤️<br>Love you forever 😘</p>";
+}
 }
 </script>
 
